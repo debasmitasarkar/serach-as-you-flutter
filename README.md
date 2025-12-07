@@ -16,7 +16,7 @@ flutter run
 
 No debouncing — fires API call on every keystroke.
 
-![Naive Demo](assets/naive.gif)
+![1](https://github.com/user-attachments/assets/703d815d-b22a-4185-b9f3-1bea6ec17774)
 
 **Problems:**
 - 7 API calls for typing "flutter"
@@ -29,7 +29,9 @@ No debouncing — fires API call on every keystroke.
 
 Uses `dart:async` Timer for debouncing. Zero dependencies.
 
-![Timer Demo](assets/timer.gif)
+![Simulator Screen Recording - iPhone 17 Pro Max - 2025-12-07 at 21 43 54](https://github.com/user-attachments/assets/3cc93052-383d-4b3b-b91a-4128c3b65bb4)
+
+
 ```dart
 void _onSearchChanged(String query) {
   _debounceTimer?.cancel();
@@ -47,7 +49,8 @@ void _onSearchChanged(String query) {
 
 Reactive streams with `debounceTime` + `switchMap` for auto-cancellation.
 
-![RxDart Demo](assets/rxdart.gif)
+![Simulator Screen Recording - iPhone 17 Pro Max - 2025-12-07 at 21 54 29](https://github.com/user-attachments/assets/7a4df0c1-a481-4685-809f-9dd3c9efae05)
+
 ```dart
 _searchSubject.stream
     .debounceTime(const Duration(milliseconds: 400))
@@ -64,7 +67,8 @@ _searchSubject.stream
 
 Event transformers handle debouncing and cancellation. Highly testable.
 
-![BLoC Demo](assets/bloc.gif)
+![Simulator Screen Recording - iPhone 17 Pro Max - 2025-12-07 at 22 03 23](https://github.com/user-attachments/assets/f1cc5442-215f-46b1-8230-7e4b7392ffb6)
+
 ```dart
 on<SearchQueryChanged>(
   _onQueryChanged,
@@ -82,7 +86,8 @@ on<SearchQueryChanged>(
 
 Provider chain with auto-dispose and caching.
 
-![Riverpod Demo](assets/riverpod.gif)
+![Simulator Screen Recording - iPhone 17 Pro Max - 2025-12-07 at 22 14 44](https://github.com/user-attachments/assets/715c0995-3a19-4ac6-8db4-108b22ab499e)
+
 ```dart
 final debouncedQueryProvider = StreamProvider.autoDispose<String>((ref) {
   // debounced query logic
@@ -95,18 +100,6 @@ final searchResultsProvider = FutureProvider.autoDispose<List<SearchResult>>((re
 ```
 
 **Best for:** Apps already using Riverpod
-
----
-
-## 🎯 Comparison
-
-| Approach | API Calls | Auto-Cancel | Dependencies |
-|----------|:---------:|:-----------:|:------------:|
-| ❌ Naive | 7+ | ❌ | 0 |
-| ⏱️ Timer | 1 | ❌ | 0 |
-| 📡 RxDart | 1 | ✅ | 1 |
-| 📦 BLoC | 1 | ✅ | 2 |
-| 🪄 Riverpod | 1 | ❌ | 1 |
 
 ---
 
