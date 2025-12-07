@@ -1,0 +1,31 @@
+name: search_demo_app
+description: Search-as-you-type demo with 4 different approaches
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  # RxDart approach
+  rxdart: ^0.28.0
+  
+  # BLoC approach
+  flutter_bloc: ^8.1.6
+  stream_transform: ^2.1.0
+  
+  # Riverpod approach
+  flutter_riverpod: ^2.5.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
