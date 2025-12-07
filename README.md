@@ -115,7 +115,7 @@ flutter_riverpod: ^2.5.1
 
 ## 📝 Related Article
 
-[Implementing Search-as-You-Type in Flutter](https://medium.com/@debasmitasarkar/search-as-you-type-flutter) — Full breakdown with pros/cons and when to use each approach.
+[Implementing Search-as-You-Type in Flutter](https://medium.com/@debasmitasarkar.93/implementing-search-as-you-type-with-flutter-5ca3704b098d) — Full breakdown with pros/cons and when to use each approach.
 
 ---
 
